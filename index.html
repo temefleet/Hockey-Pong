@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Pong</title>
+	</head>
+	<body>
+		<div class="game-wrapper">
+			<h1>Pong</h1>
+			<div id="game"></div>
+				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="512" height="256" viewBox="0 0 512 256" fill="#353535">
+
+					<!--   board -->
+					<rect width="512" height="256" x="0" y="0" fill="#353535" />
+
+					<!-- goal-box -->
+					<polyline points="0 32, 64 32, 64 224, 0 224" stroke="grey" stroke-width="1" stroke-dasharray="2 4"/>
+					<polyline points="512 32, 448 32, 448 224, 512 224" stroke="grey" stroke-width="1" stroke-dasharray="2 4"/>
+
+					<!--   halfcourt -->
+					<line x1="256" y1="256" x2="256" y2="0" stroke="red" stroke-width="4" stroke-dasharray="2 4" />
+
+					<!-- blue lines -->
+					<line x1="352" y1="256" x2="352" y2="0" stroke="blue" stroke-width="1" stroke-dasharray="2 4" />
+					<line x1="160" y1="256" x2="160" y2="0" stroke="blue" stroke-width="1" stroke-dasharray="2 4" />
+					
+					<!--   paddle1 -->
+					<line x1="10" y1="100" x2="10" y2="156" stroke="white" stroke-width="8" />
+
+					<!--   paddle2 -->
+					<line x1="502" y1="100" x2="502" y2="156" stroke="white" stroke-width="8" />
+
+					<!--   ball -->
+					<circle cx="256" cy="128" r="10" fill="white" stroke="#353535" stroke-width="1" />
+
+				</svg>
+		</div>
+		<script type="text/javascript" src="build/bundle.js"></script>
+	</body>
+</html>
