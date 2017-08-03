@@ -62,5 +62,73 @@ export default class Board {
     faceoffCircle.setAttributeNS(null, 'stroke-dasharray', '2 4');
     faceoffCircle.setAttributeNS(null, 'fill', 'none');
     svg.appendChild(faceoffCircle);
+
+    // faceoff topleft
+    let faceoffTopLeft = document.createElementNS(SVG_NS, 'circle');
+    faceoffTopLeft.setAttributeNS(null, 'cx', this.width *(1/6));
+    faceoffTopLeft.setAttributeNS(null, 'cy', this.height *(1/4));
+    faceoffTopLeft.setAttributeNS(null, 'r', this.width *(1/12));
+    faceoffTopLeft.setAttributeNS(null, 'stroke', 'red');
+    faceoffTopLeft.setAttributeNS(null, 'stroke-width', '2');
+    faceoffTopLeft.setAttributeNS(null, 'stroke-dasharray', '2 4');
+    faceoffTopLeft.setAttributeNS(null, 'fill', 'none');
+    svg.appendChild(faceoffTopLeft);
+
+    // faceoff topright
+    let faceoffTopRight = document.createElementNS(SVG_NS, 'circle');
+    faceoffTopRight.setAttributeNS(null, 'cx', this.width *(5/6));
+    faceoffTopRight.setAttributeNS(null, 'cy', this.height *(1/4));
+    faceoffTopRight.setAttributeNS(null, 'r', this.width *(1/12));
+    faceoffTopRight.setAttributeNS(null, 'stroke', 'red');
+    faceoffTopRight.setAttributeNS(null, 'stroke-width', '2');
+    faceoffTopRight.setAttributeNS(null, 'stroke-dasharray', '2 4');
+    faceoffTopRight.setAttributeNS(null, 'fill', 'none');
+    svg.appendChild(faceoffTopRight);
+
+    // faceoff BottomLeft
+    let faceoffBottomLeft = document.createElementNS(SVG_NS, 'circle');
+    faceoffBottomLeft.setAttributeNS(null, 'cx', this.width *(1/6));
+    faceoffBottomLeft.setAttributeNS(null, 'cy', this.height *(3/4));
+    faceoffBottomLeft.setAttributeNS(null, 'r', this.width *(1/12));
+    faceoffBottomLeft.setAttributeNS(null, 'stroke', 'red');
+    faceoffBottomLeft.setAttributeNS(null, 'stroke-width', '2');
+    faceoffBottomLeft.setAttributeNS(null, 'stroke-dasharray', '2 4');
+    faceoffBottomLeft.setAttributeNS(null, 'fill', 'none');
+    svg.appendChild(faceoffBottomLeft);
+
+    // faceoff BottomRight
+    let faceoffBottomRight = document.createElementNS(SVG_NS, 'circle');
+    faceoffBottomRight.setAttributeNS(null, 'cx', this.width *(5/6));
+    faceoffBottomRight.setAttributeNS(null, 'cy', this.height *(3/4));
+    faceoffBottomRight.setAttributeNS(null, 'r', this.width *(1/12));
+    faceoffBottomRight.setAttributeNS(null, 'stroke', 'red');
+    faceoffBottomRight.setAttributeNS(null, 'stroke-width', '2');
+    faceoffBottomRight.setAttributeNS(null, 'stroke-dasharray', '2 4');
+    faceoffBottomRight.setAttributeNS(null, 'fill', 'none');
+    svg.appendChild(faceoffBottomRight);
+
+    // net crease
+    let crease1 = document.createElementNS(SVG_NS, 'circle');
+    crease1.setAttributeNS(null, 'cx', 0);
+    crease1.setAttributeNS(null, 'cy', this.height /2);
+    crease1.setAttributeNS(null, 'r', this.width *(1/14));
+    crease1.setAttributeNS(null, 'stroke', 'red');
+    crease1.setAttributeNS(null, 'stroke-width', '2');
+    crease1.setAttributeNS(null, 'stroke-dasharray', '2');
+    crease1.setAttributeNS(null, 'fill', 'skyblue');
+    svg.appendChild(crease1);
+
+    // faceoff BottomRight
+    let crease2 = document.createElementNS(SVG_NS, 'circle');
+    crease2.setAttributeNS(null, 'cx', this.width);
+    crease2.setAttributeNS(null, 'cy', this.height /2);
+    crease2.setAttributeNS(null, 'r', this.width *(1/14));
+    crease2.setAttributeNS(null, 'stroke', 'red');
+    crease2.setAttributeNS(null, 'stroke-width', '2');
+    crease2.setAttributeNS(null, 'stroke-dasharray', '2');
+    crease2.setAttributeNS(null, 'fill', 'skyblue');
+    svg.appendChild(crease2);
+
+
   } // end render()
 }
