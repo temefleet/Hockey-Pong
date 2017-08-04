@@ -53,4 +53,4 @@ export default class Paddle {
     svg.appendChild(paddle);
   } // end render
 
-} // end class
+} // end Paddle class

@@ -191,4 +191,4 @@ export default class Board {
 
 
   } // end render()
-}
+} // end Board class

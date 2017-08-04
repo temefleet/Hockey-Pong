@@ -79,6 +79,10 @@ body {
   width: 100%;
 }
 
+text {
+  font-family: 'Silkscreen Web', monotype;
+}
+
 h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem; 
