@@ -151,18 +151,18 @@ export default class Board {
     let crease1 = document.createElementNS(SVG_NS, 'circle');
     crease1.setAttributeNS(null, 'cx', 0);
     crease1.setAttributeNS(null, 'cy', this.height /2);
-    crease1.setAttributeNS(null, 'r', this.width *(1/14));
+    crease1.setAttributeNS(null, 'r', this.height *(1/6));
     crease1.setAttributeNS(null, 'stroke', '#ff6666');
     crease1.setAttributeNS(null, 'stroke-width', '2');
     crease1.setAttributeNS(null, 'stroke-dasharray', '2');
     crease1.setAttributeNS(null, 'fill', '#e6f3f7');
     svg.appendChild(crease1);
 
-    // faceoff BottomRight
+    // net crease 2
     let crease2 = document.createElementNS(SVG_NS, 'circle');
     crease2.setAttributeNS(null, 'cx', this.width);
     crease2.setAttributeNS(null, 'cy', this.height /2);
-    crease2.setAttributeNS(null, 'r', this.width *(1/14));
+    crease2.setAttributeNS(null, 'r', this.height *(1/6));
     crease2.setAttributeNS(null, 'stroke', '#ff6666');
     crease2.setAttributeNS(null, 'stroke-width', '2');
     crease2.setAttributeNS(null, 'stroke-dasharray', '2');
@@ -188,6 +188,47 @@ export default class Board {
     sideBoardsBottom.setAttributeNS(null, 'stroke', 'grey');
     sideBoardsBottom.setAttributeNS(null, 'stroke-width', '4');
     svg.appendChild(sideBoardsBottom);
+
+    // render side Boards Left Top
+    let sideBoardsLeftTop = document.createElementNS(SVG_NS, 'line');
+    sideBoardsLeftTop.setAttributeNS(null, 'x1', 0);
+    sideBoardsLeftTop.setAttributeNS(null, 'y1', 0);
+    sideBoardsLeftTop.setAttributeNS(null, 'x2', 0);
+    sideBoardsLeftTop.setAttributeNS(null, 'y2', this.height *(1/3));
+    sideBoardsLeftTop.setAttributeNS(null, 'stroke', 'grey');
+    sideBoardsLeftTop.setAttributeNS(null, 'stroke-width', '4');
+    svg.appendChild(sideBoardsLeftTop);
+
+    // render side Boards Left Bottom
+    let sideBoardsLeftBottom = document.createElementNS(SVG_NS, 'line');
+    sideBoardsLeftBottom.setAttributeNS(null, 'x1', 0);
+    sideBoardsLeftBottom.setAttributeNS(null, 'y1', this.height *(2/3));
+    sideBoardsLeftBottom.setAttributeNS(null, 'x2', 0);
+    sideBoardsLeftBottom.setAttributeNS(null, 'y2', this.height);
+    sideBoardsLeftBottom.setAttributeNS(null, 'stroke', 'grey');
+    sideBoardsLeftBottom.setAttributeNS(null, 'stroke-width', '4');
+    svg.appendChild(sideBoardsLeftBottom);
+
+    // render side Boards Right Top
+    let sideBoardsRightTop = document.createElementNS(SVG_NS, 'line');
+    sideBoardsRightTop.setAttributeNS(null, 'x1', this.width);
+    sideBoardsRightTop.setAttributeNS(null, 'y1', 0);
+    sideBoardsRightTop.setAttributeNS(null, 'x2', this.width);
+    sideBoardsRightTop.setAttributeNS(null, 'y2', this.height *(1/3));
+    sideBoardsRightTop.setAttributeNS(null, 'stroke', 'grey');
+    sideBoardsRightTop.setAttributeNS(null, 'stroke-width', '4');
+    svg.appendChild(sideBoardsRightTop);
+
+    // render side Boards Right Bottom
+    let sideBoardsRightBottom = document.createElementNS(SVG_NS, 'line');
+    sideBoardsRightBottom.setAttributeNS(null, 'x1', this.width);
+    sideBoardsRightBottom.setAttributeNS(null, 'y1', this.height *(2/3));
+    sideBoardsRightBottom.setAttributeNS(null, 'x2', this.width);
+    sideBoardsRightBottom.setAttributeNS(null, 'y2', this.height);
+    sideBoardsRightBottom.setAttributeNS(null, 'stroke', 'grey');
+    sideBoardsRightBottom.setAttributeNS(null, 'stroke-width', '4');
+    svg.appendChild(sideBoardsRightBottom);
+
 
 
   } // end render()

@@ -26,17 +26,25 @@ export default class Ball {
   }
 
   wallCollision(player1, player2) {
-    const scoreLeft = this.x <= 0;
-    const scoreRight = this.x >= this.boardWidth;
+    const hitLeft = this.x <= 2;
+    const hitRight = this.x >= this.boardWidth - 2;
     const hitTop = this.y - this.radius <= 2;
     const hitBottom = this.y + this.radius >= this.boardHeight - 2;
 
-    if (scoreLeft) {
-      this.direction = -1;
-      this.goal(player2);
-    } else if (scoreRight) {
-      this.direction = 1;
-      this.goal(player1);
+    if (hitLeft) {
+      if (this.y > this.boardHeight * (1/3) && this.y < this.boardHeight * (2/3)) {
+        this.direction = -1;
+        this.goal(player2);
+      } else {
+        this.vx = -this.vx;
+      }
+    } else if (hitRight) {
+      if (this.y > this.boardHeight * (1/3) && this.y < this.boardHeight * (2/3)) {
+        this.direction = 1;
+        this.goal(player1);
+      } else {
+        this.vx = -this.vx;
+      }
     } else if (hitTop || hitBottom) {
       // flip vy
       this.vy = -this.vy;

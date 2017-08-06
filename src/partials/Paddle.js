@@ -2,7 +2,7 @@ import { SVG_NS } from '../settings';
 
 export default class Paddle {
 
-  constructor(boardHeight, width, height, x, y, up, down) {
+  constructor(boardWidth, boardHeight, width, height, x, y, up, down) {
     this.boardHeight = boardHeight;
     this.width = width;
     this.height = height;
