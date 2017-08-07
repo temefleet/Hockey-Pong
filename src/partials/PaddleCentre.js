@@ -8,7 +8,7 @@ export default class PaddleCentre {
     this.width = width;
     this.height = height;
     this.x = x;
-    this.y = y/2 - this.height/2;
+    this.y = (y - this.height)/2;
     this.speed = 10;
     this.score = 0;
     this.color = color;
@@ -34,12 +34,12 @@ export default class PaddleCentre {
   }
 
   up() {
-    this.y = Math.max(this.boardHeight * (1/10), this.y - this.speed);
+    this.y = Math.max(this.boardHeight * (1/5), this.y - this.speed);
   } // end up
 
   down() {
     this.y = Math.min(
-      this.boardHeight * (9/10) - this.height, 
+      this.boardHeight * (4/5) - this.height, 
       this.y + this.speed
     );
   } // end down

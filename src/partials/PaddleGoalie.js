@@ -34,12 +34,12 @@ export default class PaddleGoalie {
   }
 
   up() {
-    this.y = Math.max(this.boardHeight * (1/10), this.y - this.speed);
+    this.y = Math.max(this.boardHeight * (1/5), this.y - this.speed);
   } // end up
 
   down() {
     this.y = Math.min(
-      this.boardHeight * (9/10) - this.height, 
+      this.boardHeight * (4/5) - this.height, 
       this.y + this.speed
     );
   } // end down

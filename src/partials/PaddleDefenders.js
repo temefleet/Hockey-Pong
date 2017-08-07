@@ -8,8 +8,8 @@ export default class PaddleDefenders {
     this.width = width;
     this.height = height * (4/3);
     this.x = x;
-    this.y1 = y1 * (2/5) - (this.height/2);
-    this.y2 = y2 * (3/5) - (this.height/2);
+    this.y1 = y1 * (3/10) - (this.height/2);
+    this.y2 = y2 * (7/10) - (this.height/2);
     this.speed = 10;
     this.score = 0;
     this.color = color;
@@ -38,12 +38,12 @@ export default class PaddleDefenders {
 
   up() {
     this.y1 = Math.max(0, this.y1 - this.speed);
-    this.y2 = Math.max(this.boardHeight * (1/5), this.y2 - this.speed);
+    this.y2 = Math.max(this.boardHeight * (2/5), this.y2 - this.speed);
   } // end up
 
   down() {
     this.y1 = Math.min(
-      this.boardHeight*(4/5) - this.height, 
+      this.boardHeight*(3/5) - this.height, 
       this.y1 + this.speed
     );
     this.y2 = Math.min(

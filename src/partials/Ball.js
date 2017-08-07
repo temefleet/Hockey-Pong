@@ -50,7 +50,7 @@ export default class Ball {
     }
   }
 
-  paddleCollision(player1, player2, player1D, player2D, player1C, player2C) {
+  paddleCollision(player1, player2, player1D, player2D, player1F, player2F, player1C, player2C) {
     if (this.vx > 0) {
 
       // detect player 2 paddle collision
@@ -62,6 +62,9 @@ export default class Ball {
 
       let paddleCentre = player2C.coordinates(player2C.x, player2C.y, player2C.width, player2C.height);
       let [leftXC, rightXC, topYC, bottomYC] = paddleCentre;
+
+      let paddleForwards = player2F.coordinates(player2F.x, player2F.y1, player2F.y2, player2F.width, player2F.height);
+      let [leftXF, rightXF, topY1F, bottomY1F, topY2F, bottomY2F] = paddleForwards;
 
 
       if (
@@ -84,6 +87,16 @@ export default class Ball {
         && this.x - this.radius <= leftXC
         && this.y >= topYC
         && this.y <= bottomYC)
+        ||
+        (this.x + this.radius >= leftXF // forward top detection
+        && this.x - this.radius <= leftXF
+        && this.y >= topY1F
+        && this.y <= bottomY1F)
+        ||
+        (this.x + this.radius >= leftXF // forward bottom detection
+        && this.x - this.radius <= leftXF
+        && this.y >= topY2F
+        && this.y <= bottomY2F)
       ) {
         this.vx = -this.vx;
         this.shot.play();
@@ -100,26 +113,39 @@ export default class Ball {
       let paddleCentre = player1C.coordinates(player1C.x, player1C.y, player1C.width, player1C.height);
       let [leftXC, rightXC, topYC, bottomYC] = paddleCentre;
 
+      let paddleForwards = player1F.coordinates(player1F.x, player1F.y1, player1F.y2, player1F.width, player1F.height);
+      let [leftXF, rightXF, topY1F, bottomY1F, topY2F, bottomY2F] = paddleForwards;
+
       if (
-        (this.x - this.radius <= rightX
+        (this.x - this.radius <= rightX // goalie detection
         && this.x + this.radius >= rightX
         && this.y >= topY 
         && this.y <= bottomY)
         ||
-        (this.x - this.radius <= rightXD
+        (this.x - this.radius <= rightXD // top defense detection
         && this.x + this.radius >= rightXD
         && this.y >= topY1D 
         && this.y <= bottomY1D)
         ||
-        (this.x - this.radius <= rightXD
+        (this.x - this.radius <= rightXD // bottom defense detection
         && this.x + this.radius >= rightXD
         && this.y >= topY2D 
         && this.y <= bottomY2D)
         ||
-        (this.x - this.radius <= rightXC
+        (this.x - this.radius <= rightXC // centre hit detection
         && this.x + this.radius >= rightXC
         && this.y >= topYC 
         && this.y <= bottomYC)
+        ||
+        (this.x - this.radius <= rightXF // top defense detection
+        && this.x + this.radius >= rightXF
+        && this.y >= topY1F 
+        && this.y <= bottomY1F)
+        ||
+        (this.x - this.radius <= rightXF // bottom defense detection
+        && this.x + this.radius >= rightXF
+        && this.y >= topY2F 
+        && this.y <= bottomY2F)
       ) {
         this.vx = -this.vx;
         this.shot.play();
@@ -132,13 +158,13 @@ export default class Ball {
     this.reset();
   }
 
-  render(svg, player1, player2, player1D, player2D, player1C, player2C) {
+  render(svg, player1, player2, player1D, player2D, player1F, player2F, player1C, player2C) {
   
   // ball movement
   this.x += this.vx;
   this.y += this.vy;
   this.wallCollision(player1, player2);
-  this.paddleCollision(player1, player2, player1D, player2D, player1C, player2C);
+  this.paddleCollision(player1, player2, player1D, player2D, player1F, player2F, player1C, player2C);
   
   // render ball
   let ball = document.createElementNS(SVG_NS, 'circle');

@@ -38,7 +38,7 @@ export default class PaddleForwards {
 
   up() {
     this.y1 = Math.max(0, this.y1 - this.speed);
-    this.y2 = Math.max(this.boardHeight * (3/5), this.y2 - this.speed);
+    this.y2 = Math.max(this.boardHeight * (2/5), this.y2 - this.speed);
   } // end up
 
   down() {
