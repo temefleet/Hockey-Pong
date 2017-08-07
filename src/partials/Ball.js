@@ -7,8 +7,7 @@ export default class Ball {
     this.boardWidth = boardWidth;
     this.boardHeight = boardHeight;
     this.direction = Math.random() < 0.5 ? -1 : 1;
-    this.ping = new Audio('public/sounds/pong-01.wav');
-    this.ping2 = new Audio('public/sounds/pong-02.wav');
+    this.shot = new Audio('public/sounds/slapshot.wav');
     this.reset();
   }
 
@@ -65,7 +64,7 @@ export default class Ball {
         && this.y <= bottomY
       ) {
         this.vx = -this.vx;
-        this.ping.play();
+        this.shot.play();
       }
 
     } else {
@@ -80,7 +79,7 @@ export default class Ball {
         && this.y <= bottomY
       ) {
         this.vx = -this.vx;
-        this.ping2.play();
+        this.shot.play();
       }
     } 
   }
