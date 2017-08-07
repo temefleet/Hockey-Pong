@@ -6,10 +6,10 @@ export default class PaddleDefenders {
 
     this.boardHeight = boardHeight;
     this.width = width;
-    this.height = height;
+    this.height = height * (4/3);
     this.x = x;
-    this.y1 = y1;
-    this.y2 = y2;
+    this.y1 = y1 * (2/5) - (this.height/2);
+    this.y2 = y2 * (3/5) - (this.height/2);
     this.speed = 10;
     this.score = 0;
     this.color = color;
@@ -56,7 +56,7 @@ export default class PaddleDefenders {
     // render paddle defender top
     let paddleDefenderTop = document.createElementNS(SVG_NS, 'rect');
 		paddleDefenderTop.setAttributeNS(null, 'width', this.width);
-    paddleDefenderTop.setAttributeNS(null, 'height', this.height * (4/3));
+    paddleDefenderTop.setAttributeNS(null, 'height', this.height);
     paddleDefenderTop.setAttributeNS(null, 'x', this.x);
     paddleDefenderTop.setAttributeNS(null, 'y', this.y1);
     paddleDefenderTop.setAttributeNS(null, 'fill', this.color);
@@ -65,7 +65,7 @@ export default class PaddleDefenders {
     // paddle defender bottom
     let paddleDefenderBottom = document.createElementNS(SVG_NS, 'rect');
 		paddleDefenderBottom.setAttributeNS(null, 'width', this.width);
-    paddleDefenderBottom.setAttributeNS(null, 'height', this.height * (4/3));
+    paddleDefenderBottom.setAttributeNS(null, 'height', this.height);
     paddleDefenderBottom.setAttributeNS(null, 'x', this.x);
     paddleDefenderBottom.setAttributeNS(null, 'y', this.y2);
     paddleDefenderBottom.setAttributeNS(null, 'fill', this.color);

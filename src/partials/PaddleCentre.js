@@ -1,6 +1,6 @@
 import { SVG_NS } from '../settings';
 
-export default class PaddleGoalie {
+export default class PaddleCentre {
 
   constructor(boardHeight, width, height, x, y, up, down, color) {
 
@@ -8,7 +8,7 @@ export default class PaddleGoalie {
     this.width = width;
     this.height = height;
     this.x = x;
-    this.y = y;
+    this.y = y/2 - this.height/2;
     this.speed = 10;
     this.score = 0;
     this.color = color;
@@ -26,11 +26,11 @@ export default class PaddleGoalie {
   } // end constructor
 
   coordinates(x, y, width, height) {
-    let leftX = x;
-    let rightX = x + width;
-    let topY = y;
-    let bottomY = y + height;
-    return [leftX, rightX, topY, bottomY];
+    let leftXC = x;
+    let rightXC = x + width;
+    let topYC = y;
+    let bottomYC = y + height;
+    return [leftXC, rightXC, topYC, bottomYC];
   }
 
   up() {
@@ -46,13 +46,13 @@ export default class PaddleGoalie {
 
   render(svg) {
     // render paddle goalie
-    let paddleGoalie = document.createElementNS(SVG_NS, 'rect');
-		paddleGoalie.setAttributeNS(null, 'width', this.width);
-    paddleGoalie.setAttributeNS(null, 'height', this.height);
-    paddleGoalie.setAttributeNS(null, 'x', this.x);
-    paddleGoalie.setAttributeNS(null, 'y', this.y);
-    paddleGoalie.setAttributeNS(null, 'fill', this.color);
-    svg.appendChild(paddleGoalie);
+    let paddleCentre = document.createElementNS(SVG_NS, 'rect');
+		paddleCentre.setAttributeNS(null, 'width', this.width);
+    paddleCentre.setAttributeNS(null, 'height', this.height);
+    paddleCentre.setAttributeNS(null, 'x', this.x);
+    paddleCentre.setAttributeNS(null, 'y', this.y);
+    paddleCentre.setAttributeNS(null, 'fill', this.color);
+    svg.appendChild(paddleCentre);
 
   } // end render
 
