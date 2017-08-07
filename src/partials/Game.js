@@ -32,6 +32,7 @@ export default class Game {
 			this.color
 		);
 
+		// player 1 defenders
 		this.player1Defenders = new PaddleDefenders(
 			this.height, 
 			this.paddleWidth, 
@@ -117,7 +118,7 @@ export default class Game {
 		this.player1Defenders.render(svg);
 		this.player2Goalie.render(svg);
 		this.player2Defenders.render(svg);
-		this.ball.render(svg, this.player1Goalie, this.player2Goalie);
+		this.ball.render(svg, this.player1Goalie, this.player2Goalie, this.player1Defenders, this.player2Defenders);
 		this.score1.render(svg, this.player1Goalie.score);
 		this.score2.render(svg, this.player2Goalie.score);
 		if (this.ball2) {

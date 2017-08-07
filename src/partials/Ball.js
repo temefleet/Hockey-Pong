@@ -50,18 +50,32 @@ export default class Ball {
     }
   }
 
-  paddleCollision(player1, player2) {
+  paddleCollision(player1, player2, player1D, player2D) {
     if (this.vx > 0) {
 
       // detect player 2 paddle collision
       let paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height);
       let [leftX, rightX, topY, bottomY] = paddle;
 
+      let paddleDefenders = player2D.coordinates(player2D.x, player2D.y1, player2D.y2, player2D.width, player2D.height);
+      let [leftXD, rightXD, topY1D, bottomY1D, topY2D, bottomY2D] = paddleDefenders;
+
+
       if (
-        this.x + this.radius >= leftX
+        (this.x + this.radius >= leftX
         && this.x - this.radius <= leftX
         && this.y >= topY
-        && this.y <= bottomY
+        && this.y <= bottomY)
+        ||
+        (this.x + this.radius >= leftXD
+        && this.x - this.radius <= leftXD
+        && this.y >= topY1D
+        && this.y <= bottomY1D)
+        ||
+        (this.x + this.radius >= leftXD
+        && this.x - this.radius <= leftXD
+        && this.y >= topY2D
+        && this.y <= bottomY2D)
       ) {
         this.vx = -this.vx;
         this.shot.play();
@@ -72,11 +86,24 @@ export default class Ball {
       let paddle = player1.coordinates(player1.x, player1.y, player1.width, player1.height);
       let [leftX, rightX, topY, bottomY] = paddle;
 
+      let paddleDefenders = player1D.coordinates(player1D.x, player1D.y1, player1D.y2, player1D.width, player1D.height);
+      let [leftXD, rightXD, topY1D, bottomY1D, topY2D, bottomY2D] = paddleDefenders;
+
       if (
-        this.x - this.radius <= rightX
+        (this.x - this.radius <= rightX
         && this.x + this.radius >= rightX
         && this.y >= topY 
-        && this.y <= bottomY
+        && this.y <= bottomY)
+        ||
+        (this.x - this.radius <= rightXD
+        && this.x + this.radius >= rightXD
+        && this.y >= topY1D 
+        && this.y <= bottomY1D)
+        ||
+        (this.x - this.radius <= rightXD
+        && this.x + this.radius >= rightXD
+        && this.y >= topY2D 
+        && this.y <= bottomY2D)
       ) {
         this.vx = -this.vx;
         this.shot.play();
@@ -89,20 +116,20 @@ export default class Ball {
     this.reset();
   }
 
-  render(svg, player1, player2) {
+  render(svg, player1, player2, player1Defenders, player2Defenders) {
   
   // ball movement
-    this.x += this.vx;
-    this.y += this.vy;
-    this.wallCollision(player1, player2);
-    this.paddleCollision(player1, player2);
+  this.x += this.vx;
+  this.y += this.vy;
+  this.wallCollision(player1, player2);
+  this.paddleCollision(player1, player2, player1Defenders, player2Defenders);
   
   // render ball
-    let ball = document.createElementNS(SVG_NS, 'circle');
-		ball.setAttributeNS(null, 'cx', this.x);
-    ball.setAttributeNS(null, 'cy', this.y);
-    ball.setAttributeNS(null, 'r', this.radius);
-    svg.appendChild(ball);
+  let ball = document.createElementNS(SVG_NS, 'circle');
+  ball.setAttributeNS(null, 'cx', this.x);
+  ball.setAttributeNS(null, 'cy', this.y);
+  ball.setAttributeNS(null, 'r', this.radius);
+  svg.appendChild(ball);
 
   } // end render
 

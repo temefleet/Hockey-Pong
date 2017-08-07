@@ -27,13 +27,13 @@ export default class PaddleDefenders {
   } // end constructor
 
   coordinates(x, y1, y2, width, height) {
-    let leftX = x;
-    let rightX = x + width;
-    let topY1 = y1;
-    let bottomY1 = y1 + height;
-    let topY2 = y2;
-    let bottomY2 = y2 + height;
-    return [leftX, rightX, topY1, bottomY1, topY2, bottomY2];
+    let leftXD = x;
+    let rightXD = x + width;
+    let topY1D = y1;
+    let bottomY1D = y1 + height;
+    let topY2D = y2;
+    let bottomY2D = y2 + height;
+    return [leftXD, rightXD, topY1D, bottomY1D, topY2D, bottomY2D];
   }
 
   up() {
@@ -56,7 +56,7 @@ export default class PaddleDefenders {
     // render paddle defender top
     let paddleDefenderTop = document.createElementNS(SVG_NS, 'rect');
 		paddleDefenderTop.setAttributeNS(null, 'width', this.width);
-    paddleDefenderTop.setAttributeNS(null, 'height', this.height);
+    paddleDefenderTop.setAttributeNS(null, 'height', this.height * (4/3));
     paddleDefenderTop.setAttributeNS(null, 'x', this.x);
     paddleDefenderTop.setAttributeNS(null, 'y', this.y1);
     paddleDefenderTop.setAttributeNS(null, 'fill', this.color);
@@ -65,7 +65,7 @@ export default class PaddleDefenders {
     // paddle defender bottom
     let paddleDefenderBottom = document.createElementNS(SVG_NS, 'rect');
 		paddleDefenderBottom.setAttributeNS(null, 'width', this.width);
-    paddleDefenderBottom.setAttributeNS(null, 'height', this.height);
+    paddleDefenderBottom.setAttributeNS(null, 'height', this.height * (4/3));
     paddleDefenderBottom.setAttributeNS(null, 'x', this.x);
     paddleDefenderBottom.setAttributeNS(null, 'y', this.y2);
     paddleDefenderBottom.setAttributeNS(null, 'fill', this.color);
