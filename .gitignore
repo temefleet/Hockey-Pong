@@ -1,7 +1,30 @@
-# Editor
-DS_Store
-.vscode
+# Ignore OS files #
+# =============== #
+.DS_Store
+.DS_Store?
+.vscode/
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+*[Tt]humbs.db
+*.Trashes
 
-# NPM
-node_modules
+# Ignore packages #
+# =============== #
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Ignore packages #
+# =============== #
+node_modules/
 npm-debug.log
+
+# Ignore API Keys
+# apikeys
