@@ -137,12 +137,12 @@ export default class Ball {
         && this.y >= topYC 
         && this.y <= bottomYC)
         ||
-        (this.x - this.radius <= rightXF // top defense detection
+        (this.x - this.radius <= rightXF // top forward detection
         && this.x + this.radius >= rightXF
         && this.y >= topY1F 
         && this.y <= bottomY1F)
         ||
-        (this.x - this.radius <= rightXF // bottom defense detection
+        (this.x - this.radius <= rightXF // bottom forward detection
         && this.x + this.radius >= rightXF
         && this.y >= topY2F 
         && this.y <= bottomY2F)

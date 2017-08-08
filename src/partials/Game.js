@@ -18,8 +18,8 @@ export default class Game {
 		this.paddleHeight = 14;
 		this.boardGap = 10;
 		this.ballRadius = 5;
-		this.colorTeam1 = '#F4793E';
-		this.colorTeam2 = '#008852'
+		this.colorTeam1 = '#000080';
+		this.colorTeam2 = '#8b0000'
 		
 		this.board = new Board(this.width, this.height);
 		
