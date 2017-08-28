@@ -184,7 +184,11 @@ export default class Game {
 		this.score1.render(svg, this.player1Goalie.score);
 		this.score2.render(svg, this.player2Goalie.score);
 		if (this.ball2) {
-			this.ball2.render(svg, this.player1Goalie, this.player2Goalie);
+			this.ball2.render(svg, this.player1Goalie, this.player2Goalie, 
+				this.player1Defenders, this.player2Defenders,
+				this.player1Forwards, this.player2Forwards,  
+				this.player1Centre, this.player2Centre
+			);
 		}
 	}
 
