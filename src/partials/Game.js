@@ -191,5 +191,4 @@ export default class Game {
 			);
 		}
 	}
-
 } // end Game class
